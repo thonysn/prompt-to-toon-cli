@@ -1,0 +1,16 @@
+task: data_pipeline
+description: Nightly ETL pipeline for warehouse ingestion
+stack: airflow
+tags:
+  - etl
+  - postgres
+  - airflow
+  - s3
+schedule: "0 2 * * *"
+steps:
+  - extract_from_s3
+  - validate_schema
+  - transform_to_parquet
+  - load_to_warehouse
+  - notify_slack
+sla_minutes: 30

@@ -1,0 +1,10 @@
+{
+  "task": "auth_service",
+  "stack": "fastapi",
+  "features": ["jwt", "oauth2", "refresh_tokens"],
+  "type": "backend_service",
+  "description": "Stateless JWT-based authentication and authorization service",
+  "dependencies": ["python-jose", "passlib", "sqlalchemy"],
+  "endpoints": ["/auth/login", "/auth/refresh", "/auth/logout"],
+  "security": ["bcrypt_hashing", "token_blacklist", "rate_limiting"]
+}
