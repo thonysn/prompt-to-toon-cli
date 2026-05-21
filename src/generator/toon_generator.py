@@ -74,7 +74,11 @@ def generate(doc: SemanticDoc, compact: bool = False, pretty: bool = False) -> s
             if not items:
                 continue
             if _all_tokens(items) and len(" ".join(items)) < 80:
+                # All single-token items: space-separated (e.g. @tags jwt oauth2)
                 emit(s_slug, " ".join(items))
+            elif len(", ".join(items)) < 80:
+                # Multi-word items that fit inline: comma-separated for readability
+                emit(s_slug, ", ".join(items))
             else:
                 if s_slug not in emitted:
                     emitted.add(s_slug)
