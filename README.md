@@ -100,7 +100,6 @@ toon validate FILE
 - Deterministic, lossless round-trips
 - No schema required
 
-See [toonformat.dev](https://toonformat.dev) for the full spec.
 
 ---
 
